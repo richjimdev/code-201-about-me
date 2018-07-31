@@ -1,0 +1,12 @@
+
+
+body {
+  background-color: rgb(192, 215, 245);
+  text-align: center;
+  font-family: sans-serif;
+}
+
+#main-title {
+  color: rgb(37, 37, 37);
+  text-shadow: 1px 1px 3px grey;
+}
