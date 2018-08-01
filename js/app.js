@@ -42,7 +42,7 @@ if (readyPlay === false) {
   if (q.toLowerCase() === 'yes' || q.toLowerCase() === 'y'){
     alert(quickQuotes(q) + ' is correct! Great start!');
     questionToConsole(true, q);
-  } if (q.toLowerCase() === 'no' || q.toLowerCase() === 'n'){
+  } else if (q.toLowerCase() === 'no' || q.toLowerCase() === 'n'){
     alert(quickQuotes(q) + ' is incorrect. My name is indeed Richard.');
     questionToConsole(false, q);
   } else {
@@ -56,7 +56,7 @@ if (readyPlay === false) {
   if (q.toLowerCase() === 'yes' || q.toLowerCase() === 'y'){
     alert(quickQuotes(q) + ' is wrong! Unfortunately :( Let\'s continue.');
     questionToConsole(false, q);
-  } if (q.toLowerCase() === 'no' || q.toLowerCase() === 'n'){
+  } else if (q.toLowerCase() === 'no' || q.toLowerCase() === 'n'){
     alert(quickQuotes(q) + ' is correct. My eyes are as dark as my soul. Let\'s continue.');
     questionToConsole(true, q);
   } else {
@@ -68,9 +68,9 @@ if (readyPlay === false) {
   var q3 = prompt('Question 3. Do I like puppies?');
   q = q3;
   if (q.toLowerCase() === 'yes' || q.toLowerCase() === 'y'){
-    alert(q + '? You bet! Who doesn\'t love puppies?! Just two more questions');
+    alert(quickQuotes(q) + '? You bet! Who doesn\'t love puppies?! Just two more questions');
     questionToConsole(true, q);
-  } if (q.toLowerCase() === 'no' || q.toLowerCase() === 'n') {
+  } else if (q.toLowerCase() === 'no' || q.toLowerCase() === 'n') {
     alert(quickQuotes(q) + '? You\'re absolutely wrong, my friend. Puppies are fantastic! Just two more questions');
     questionToConsole(false, q);
   } else {
@@ -82,10 +82,10 @@ if (readyPlay === false) {
   var q4 = prompt('Question numbero cuatro. Do I own a dog?');
   q = q4;
   if (q.toLowerCase() === 'yes' || q.toLowerCase() === 'y'){
-    alert(quickQuotes(q) + ' is unfortunately wrong :( As much as I love puppies I can\'t currently take care of one. Hang in there, one question to go!');
+    alert(quickQuotes(q) + ' is unfortunately wrong :( As much as I love puppies I can\'t currently take care of one. Hang in there, one more question to go!');
     questionToConsole(false, q);
-  } if (q.toLowerCase() === 'no' || q.toLowerCase() === 'n') {
-    alert(quickQuotes(q) + 'is correct. As much as I love puppies I can\'t currently take care of one. Hang in there, one question to go!');
+  } else if (q.toLowerCase() === 'no' || q.toLowerCase() === 'n') {
+    alert(quickQuotes(q) + 'is correct. As much as I love puppies I can\'t currently take care of one. Hang in there, one more question to go!');
     questionToConsole(true, q);
   } else {
     alert(quickQuotes(q) + ' Is not an acceptable answer. Please answer the next question with "YES/Y" or "NO/N" only.');
@@ -93,19 +93,19 @@ if (readyPlay === false) {
   }
   //Fifth question
   qNumber = 5;
-  var q5 = prompt('Question numbero cuatro. Do I own a dog?');
+  var q5 = prompt('Final question. Do I speak Spanish?');
   q = q5;
   if (q.toLowerCase() === 'yes' || q.toLowerCase() === 'y'){
-    alert(quickQuotes(q) + ' is unfortunately wrong :( As much as I love puppies I can\'t currently take care of one. Hang in there, one question to go!');
+    alert(quickQuotes(q) + ' is correct! Muy bien, ' + yourName + '!');
     questionToConsole(false, q);
-  } if (q.toLowerCase() === 'no' || q.toLowerCase() === 'n') {
-    alert(quickQuotes(q) + ' is correct. As much as I love puppies I can\'t currently take care of one. Hang in there, one question to go!');
+  } else if (q.toLowerCase() === 'no' || q.toLowerCase() === 'n') {
+    alert(quickQuotes(q) + ' is not the right answer. Buena suerte la proxima vez, ' + yourName + '!');
     questionToConsole(true, q);
   } else {
     alert(quickQuotes(q) + ' Is not an acceptable answer. Please answer the next question with "YES/Y" or "NO/N" only.');
     answerUnusable(q);
   }
   //Last prompt
-  alert('That\'s the end of the game! Thanks for playing!');
+  alert('That\'s the end of the game, ' + yourName + '. Thanks for playing!');
 }
 
