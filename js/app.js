@@ -107,5 +107,6 @@ if (readyPlay === false) {
   }
   //Last prompt
   alert('That\'s the end of the game, ' + yourName + '. Thanks for playing!');
+  console.log('The game has concluded');
 }
 
