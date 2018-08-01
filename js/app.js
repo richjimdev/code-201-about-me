@@ -7,15 +7,21 @@ var quickQuotes = function(answerInstert) {
   return '\'' + answerInstert.toUpperCase() + '\'';
 };
 
-var answerCheck;
-
-var questionToConsole = function(answerCheck, qNumber, qAnswer) {
+//Created a couple functions to make the console logs more autonomous.
+var questionToConsole = function(answerCheck, qAnswer) {
   if (answerCheck === true) {
-    return console.log('User answered question ' + qNumber + ' with ' + quickQuotes(qAnswer) + '. This is correct.');
+    return console.log('User answered question ' + qNumber + ' with ' + quickQuotes(qAnswer) + '. This is CORRECT.');
   } else {
-    return console.log('User ');
+    return console.log('User answered question ' + qNumber + ' with ' + quickQuotes(qAnswer) + '. This is INCORRECT.');
   }
 };
+
+var answerUnusable = function(qAnswer) {
+  return console.log('User answered question ' + qNumber + ' with ' + quickQuotes(qAnswer) + '. This is NOT an acceptable answer format. Question skipped.');
+};
+
+//These variable will be used to define my questions and make other statements easier
+var q, qNumber;
 
 //First prompt introducing user to the game, and getting their name.
 var yourName = prompt('Welcome to my website! Before we begin let\'s play a quick game. First, tell me your name:');
@@ -30,41 +36,76 @@ if (readyPlay === false) {
   console.log('User has decided to play the game!');
 
   //First question
+  qNumber = 1;
   var q1 = prompt('Let\'s start with an easy one. Is my name Richard?');
-  if (q1.toLowerCase() === 'yes' || q1.toLowerCase() === 'y'){
-    alert(quickQuotes(q1) + ' is correct! Great start!');
-    //console.log('User answered question 1 correctly.');
-    questionToConsole(true, 1, q1);
+  q = q1;
+  if (q.toLowerCase() === 'yes' || q.toLowerCase() === 'y'){
+    alert(quickQuotes(q) + ' is correct! Great start!');
+    questionToConsole(true, q);
+  } if (q.toLowerCase() === 'no' || q.toLowerCase() === 'n'){
+    alert(quickQuotes(q) + ' is incorrect. My name is indeed Richard.');
+    questionToConsole(false, q);
   } else {
-    alert(quickQuotes(q1) + ' is incorrect. My name is indeed Richard.');
-    console.log('User answered question 1 incorrectly.');
+    alert(quickQuotes(q) + ' Is not an acceptable answer. Please answer the next question with "YES/Y" or "NO/N" only.');
+    answerUnusable(q);
   }
   //Second question
+  qNumber = 2;
   var q2 = prompt('Second question. Are my eyes blue?');
-  if (q2.toLowerCase() === 'yes' || q2.toLowerCase() === 'y'){
-    alert(quickQuotes(q2) + ' is wrong! Unfortunately :( Let\'s continue.');
-    console.log('User answered question 2 incorrectly.');
+  q = q2;
+  if (q.toLowerCase() === 'yes' || q.toLowerCase() === 'y'){
+    alert(quickQuotes(q) + ' is wrong! Unfortunately :( Let\'s continue.');
+    questionToConsole(false, q);
+  } if (q.toLowerCase() === 'no' || q.toLowerCase() === 'n'){
+    alert(quickQuotes(q) + ' is correct. My eyes are as dark as my soul. Let\'s continue.');
+    questionToConsole(true, q);
   } else {
-    alert(quickQuotes(q2) + ' is correct. My eyes are as dark as my soul. Let\'s continue.');
-    console.log('User answered question 2 correctly.');
+    alert(quickQuotes(q) + ' Is not an acceptable answer. Please answer the next question with "YES/Y" or "NO/N" only.');
+    answerUnusable(q);
   }
   //Third question
+  qNumber = 3;
   var q3 = prompt('Question 3. Do I like puppies?');
-  if (q3.toLowerCase() === 'yes' || q3.toLowerCase() === 'y'){
-    alert(q3 + '? You bet! Who doesn\'t love puppies?! Just two more questions');
-    console.log('User answered question 3 correctly.');
+  q = q3;
+  if (q.toLowerCase() === 'yes' || q.toLowerCase() === 'y'){
+    alert(q + '? You bet! Who doesn\'t love puppies?! Just two more questions');
+    questionToConsole(true, q);
+  } if (q.toLowerCase() === 'no' || q.toLowerCase() === 'n') {
+    alert(quickQuotes(q) + '? You\'re absolutely wrong, my friend. Puppies are fantastic! Just two more questions');
+    questionToConsole(false, q);
   } else {
-    alert(quickQuotes(q3) + '? You\'re absolutely wrong, my friend. Puppies are fantastic! Just two more questions');
-    console.log('User answered question 3 incorrectly.');
+    alert(quickQuotes(q) + ' Is not an acceptable answer. Please answer the next question with "YES/Y" or "NO/N" only.');
+    answerUnusable(q);
   }
   //Fourth question
+  qNumber = 4;
   var q4 = prompt('Question numbero cuatro. Do I own a dog?');
-  if (q4.toLowerCase() === 'yes' || q4.toLowerCase() === 'y'){
-    alert(quickQuotes(q4) + ' is unfortunately wrong :( As much as I love puppies I can\'t currently take care of one. Hang in there, one question to go!');
-    console.log('User answered question 4 incorrectly.');
+  q = q4;
+  if (q.toLowerCase() === 'yes' || q.toLowerCase() === 'y'){
+    alert(quickQuotes(q) + ' is unfortunately wrong :( As much as I love puppies I can\'t currently take care of one. Hang in there, one question to go!');
+    questionToConsole(false, q);
+  } if (q.toLowerCase() === 'no' || q.toLowerCase() === 'n') {
+    alert(quickQuotes(q) + 'is correct. As much as I love puppies I can\'t currently take care of one. Hang in there, one question to go!');
+    questionToConsole(true, q);
   } else {
-    alert(quickQuotes(q4) + '? You\'re absolutely wrong, my friend. Puppies are fantastic! Hang in there, one question to go!');
-    console.log('User answered question 3 correctly.');
+    alert(quickQuotes(q) + ' Is not an acceptable answer. Please answer the next question with "YES/Y" or "NO/N" only.');
+    answerUnusable(q);
   }
+  //Fifth question
+  qNumber = 5;
+  var q5 = prompt('Question numbero cuatro. Do I own a dog?');
+  q = q5;
+  if (q.toLowerCase() === 'yes' || q.toLowerCase() === 'y'){
+    alert(quickQuotes(q) + ' is unfortunately wrong :( As much as I love puppies I can\'t currently take care of one. Hang in there, one question to go!');
+    questionToConsole(false, q);
+  } if (q.toLowerCase() === 'no' || q.toLowerCase() === 'n') {
+    alert(quickQuotes(q) + ' is correct. As much as I love puppies I can\'t currently take care of one. Hang in there, one question to go!');
+    questionToConsole(true, q);
+  } else {
+    alert(quickQuotes(q) + ' Is not an acceptable answer. Please answer the next question with "YES/Y" or "NO/N" only.');
+    answerUnusable(q);
+  }
+  //Last prompt
+  alert('That\'s the end of the game! Thanks for playing!');
 }
 
