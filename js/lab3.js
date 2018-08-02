@@ -17,6 +17,8 @@ var allQs = [
   [q5, true]
 ];
 
+var countries = ['canda', 'mexico'];
+
 // var yourName = prompt('Welcome to my website! Before we begin let\'s play a quick game. First, tell me your name:');
 // console.log('User name is ' + yourName + '.');
 
@@ -55,13 +57,13 @@ var allQs = [
 //     }
 //   }
 
-  alert('Great job! Now we\'ll do a couple of different questions.');
+alert('Great job! Now we\'ll do a couple of different questions.');
 
 //Question 6
 var an6;
 var randoNum = Math.floor(Math.random() * 25) + 1;
-console.log('The random number generated for question 6 is ' + randoNum);
-var q6Tries = 6;
+// console.log('Number generated is ' + randoNum);
+var q6Tries = 4;
 do
 {
   var q6 = prompt('What number (between 1-25) am I thinking of right now? You have ' + q6Tries + ' tries!');
@@ -74,27 +76,29 @@ do
   } else if (q6 === '') {
     alert('Please enter an answer or hit "cancel" to quit this question.');
     console.log('User did not enter any data.');
-  } else if (q6 > randoNum)
+  } else if (parseInt(q6) > randoNum)
   {
     q6Tries--;
     alert('Too high! Try again. ' + q6Tries + ' attempt/s left.');
     console.log('User guessed too high.');
-  } else if (q6 < randoNum)
+  } else if (parseInt(q6) < randoNum)
   {
     q6Tries--;
     alert('Too low! ' + q6Tries + ' attempt/s left.');
     console.log('User guessed too low.');
-  } else if (q6 == randoNum)
+  } else if (parseInt(q6) === randoNum)
   {
     alert('Congrats! ' + q6 + ' was the right answer!');
     console.log('User guessed the right number. The answer was ' + randoNum + '.');
     an6 = true;
+    score++;
   } else
   {
     alert('\'' + q6 + '\' is not a valid response. Please enter a number between 1 and 25');
     console.log('User entered an invalid answer');
   }
 } while (an6 === false && q6Tries > 0);
+
 
 // alert('Your final score is ' + score + ' out of 7');
 // console.log('User\'s final score is: ' + score + ' out of 7');
