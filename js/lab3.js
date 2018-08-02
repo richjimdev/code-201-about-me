@@ -127,6 +127,8 @@ if (readyPlay === false)
     }
   } while (an7 === false && q7Tries > 0);
 
-  alert('Your final score is ' + score + ' out of 7');
+  alert('The possible anwers were: dog, cat, fish, turtle, monkey, lizard and parrot.');
+
+  alert('This concludes the game, ' + yourName + '. Your final score is ' + score + ' out of 7');
   console.log('User\'s final score is: ' + score + ' out of 7');
 }
