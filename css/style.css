@@ -1,7 +1,6 @@
-
-
 body {
-  background-color: rgb(192, 215, 245);
+  background-image: url("/img/stripes-light.png");
+  background-attachment: fixed;
   text-align: center;
   font-family: sans-serif;
 }
@@ -27,6 +26,7 @@ p {
   border-width: 8px;
   border-style: solid;
   background-blend-mode: hard-light;
+  width: auto;
 }
 
 .my-picture {
@@ -54,7 +54,7 @@ p {
   font-size: 18px;
 }
 
-h2 #places {
+h2 {
   font-size: 22px;
   font-weight: bolder;
   margin-bottom: 15px;
