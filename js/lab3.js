@@ -79,7 +79,7 @@ if (readyPlay === false)
     } else if (parseInt(q6) > randoNum)
     {
       q6Tries--;
-      alert('Too high! Try again. ' + q6Tries + ' attempt/s left.');
+      alert('Too high! ' + q6Tries + ' attempt/s left.');
       console.log('User guessed too high.');
     } else if (parseInt(q6) < randoNum)
     {

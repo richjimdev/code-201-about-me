@@ -9,9 +9,53 @@ body {
 #main-title {
   color: rgb(37, 37, 37);
   text-shadow: 1px 1px 3px grey;
+  font-size: 22px;
+  font-weight: bolder;
+  margin-bottom: 15px;
 }
 
 p {
   font-size: 16px;
   line-height: 24px;
+}
+
+.paragraph-section {
+  padding: 50px;
+  margin: 15px;
+  background-color: aliceblue;
+  border-color: rgb(75, 70, 70);
+  border-width: 8px;
+  border-style: solid;
+  background-blend-mode: hard-light;
+}
+
+.my-picture {
+  padding: 5px;
+  margin: 15px;
+  background-color: rgb(11, 29, 44);
+  border-color: rgb(29, 27, 27);
+  border-width: 8px;
+  border-style: solid;
+  background-blend-mode: hard-light;
+}
+
+.my-info {
+  padding: 15px;
+  margin: 15px;
+  background-color: rgb(140, 160, 179);
+  border-color: rgb(75, 70, 70);
+  border-width: 8px;
+  border-style: solid;
+  background-blend-mode: hard-light;
+}
+
+.top-info {
+  font-weight: bolder;
+  font-size: 18px;
+}
+
+h2 #places {
+  font-size: 22px;
+  font-weight: bolder;
+  margin-bottom: 15px;
 }
