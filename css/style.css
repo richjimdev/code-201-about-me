@@ -18,15 +18,40 @@ p {
   line-height: 24px;
 }
 
-.paragraph-section {
-  padding: 50px;
-  margin: 15px;
+
+.main-section {
+  padding-top: 30px;
+  width: 100%;
+  overflow: auto;
+  background-color:  rgb(212, 134, 16);
+}
+
+.paragraph-section-float {
   background-color: aliceblue;
   border-color: rgb(75, 70, 70);
   border-width: 8px;
   border-style: solid;
   background-blend-mode: hard-light;
-  width: auto;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, .5);
+  margin: 15px;
+  position: static;
+  width: 450px;
+  height: 450px;
+  padding: 25px 15px 40px 15px;
+}
+
+.paragraph-section {
+  background-color: aliceblue;
+  border-color: rgb(75, 70, 70);
+  border-width: 8px;
+  border-style: solid;
+  background-blend-mode: hard-light;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, .5);
+  margin: 15px;
+  display: inline-block;
+  width: 40%;
+  height: 450px;
+  padding: 25px 15px 40px 15px;
 }
 
 .my-picture {
@@ -36,7 +61,7 @@ p {
   border-color: rgb(29, 27, 27);
   border-width: 8px;
   border-style: solid;
-  background-blend-mode: hard-light;
+  /* background-blend-mode: hard-light; */
 }
 
 .my-info {
@@ -58,4 +83,19 @@ h2 {
   font-size: 22px;
   font-weight: bolder;
   margin-bottom: 15px;
+}
+
+.paragraph-section:hover {
+  background-color: yellow;
+  transition: all .5s ease;
+  opacity: 1;
+}
+
+.paragraph-section p {
+  /* opacity: 0; */
+  transition: all .5s ease;
+}
+
+.paragraph-section:hover p {
+  opacity: 1;
 }
