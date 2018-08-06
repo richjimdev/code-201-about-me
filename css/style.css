@@ -5,38 +5,51 @@ body {
   font-family: sans-serif;
 }
 
-#main-title {
-  color: rgb(37, 37, 37);
-  text-shadow: 1px 1px 3px grey;
-  font-size: 22px;
-  font-weight: bolder;
-  margin-bottom: 15px;
-}
-
 .big-title {
   float: right;
   font-size: 40px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: black;
-  text-shadow: 2px 2px 2px 2px rgba(0, 0, 0, .5);
-  margin-right: 200px;
+  box-shadow: 0px 2px 10px .5px rgba(0, 0, 0, .25);
+  margin-right: 220px;
   margin-top: 250px;
   background-color: white;
   padding: 10px 15px;
+  opacity: 0;
+  animation-name: title-in;
+  animation-duration: 2s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
 }
 
-p {
-  font-size: 16px;
+@keyframes title-in {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+  0% {margin-right: 310px;}
+  100% {margin-right: 280px;}
+}
+
+p, li {
+  font-size: 120%;
   line-height: 24px;
 }
 
+.learn-more {
+  float: left;
+  margin-top: 400px;
+}
+
+.space-top {
+  margin-top: 20px;
+}
 
 .main-section {
   padding-top: 30px;
   width: 100%;
   overflow: auto;
-  background-color:  rgb(255, 125, 65);
-  height: 250px;
+  background-color: rgb(150, 177, 194);
+  height: 280px;
+  box-shadow: 0px 2px 10px .5px rgba(0, 0, 0, .125);
 }
 
 span.learn-more {
@@ -52,36 +65,16 @@ span.learn-more {
   background-image: url("../img/me1.JPG");
   background-position: center top;
   background-size: 100%;
-  background-blend-mode: screen;
   position: relative;
   overflow-wrap: normal;
-}
-
-.paragraph-section-float {
-  background-color: aliceblue;
-  border-color: rgb(75, 70, 70);
-  border-width: 8px;
-  border-style: solid;
-  background-blend-mode: hard-light;
-  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, .5);
-  margin: 15px;
-  position: static;
-  width: 450px;
-  height: 450px;
-  padding: 25px 15px 40px 15px;
+  box-shadow: 0px 2px 10px .5px rgba(0, 0, 0, .25);
 }
 
 .paragraph-section {
   background-color: aliceblue;
-  border-color: rgb(75, 70, 70);
-  border-width: 8px;
-  border-style: solid;
   background-blend-mode: hard-light;
-  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, .5);
-  margin: 15px;
-  display: inline-block;
-  width: 40%;
-  height: 450px;
+  width: 100%;
+  height: 300px;
   padding: 25px 15px 40px 15px;
 }
 
@@ -105,21 +98,35 @@ span.learn-more {
   background-blend-mode: hard-light;
 }
 
-.top-info {
+.bottom-info {
+  margin-top: 30px;
   font-weight: bolder;
   font-size: 18px;
+  color: white;
+  display: block;
 }
 
 h2 {
-  font-size: 22px;
+  font-size: 250%;
   font-weight: bolder;
   margin-bottom: 15px;
+  font-family: 'Martel',Georgia;
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 
 .paragraph-section:hover {
   background-color: yellow;
   transition: all .5s ease;
   opacity: 1;
+}
+
+.footer-section {
+  width: 100%;
+  overflow: auto;
+  background-color: rgb(41, 42, 43);
+  height: 100px;
 }
 
 .paragraph-section p {
