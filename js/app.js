@@ -1,33 +1,105 @@
 'use strict';
-
 console.log('js is linked');
 
-//Function to make quoting user's answer easier.
-var quickQuotes = function(answerInstert) {
-  return '\'' + answerInstert.toUpperCase() + '\'';
-};
+var q;
+var score = 0;
+var q1 = 'Is my name Richard?';
+var q2 = 'Second question. Are my eyes blue?';
+var q3 = 'Do I like puppies?';
+var q4 = 'Do I have long hair?';
+var q5 = 'Final question. Do I speak Spanish?';
 
-//Created a couple functions to make the console logs more autonomous.
-var questionToConsole = function(answerCheck, qAnswer) {
-  if (answerCheck === true) {
-    return console.log('User answered question ' + qNumber + ' with ' + quickQuotes(qAnswer) + '. This is CORRECT.');
+// Array holding all my questions and wether a  'y' answer is correct or not
+var allQs = [
+  [q1, true],
+  [q2, false],
+  [q3, true],
+  [q4, false],
+  [q5, true]
+];
+
+var pets = ['dog', 'cat', 'fish', 'turtle', 'monkey', 'lizard', 'parrot'];
+
+// This function processes the first 5 questions
+function questionProcess(q){
+  if (q === 'yes' || q === 'y' || q === 'n' || q === 'no') {
+    tryAgain = false;
+    if (((q === 'yes' || q === 'y') && allQs[i][1] === true) || ((q === 'no' || q === 'n') && allQs[i][1] === false)) {
+      alert('Correct!');
+      score++;
+      console.log('User answered question ' + (i + 1) + ' with \'' + q + '\'. This is CORRECT.');
+    } else {
+      alert('Wrong!');
+      console.log('User answered question ' + (i + 1) + ' with \'' + q + '\'. This is INCORRECT.');
+    }
   } else {
-    return console.log('User answered question ' + qNumber + ' with ' + quickQuotes(qAnswer) + '. This is INCORRECT.');
+    alert('Please only use: y, yes, n, or no as answers. Try again.');
+    console.log('User submitted an answer in the wrong format.');
+    tryAgain = true;
   }
-};
+}
 
-var answerUnusable = function(qAnswer) {
-  return console.log('User answered question ' + qNumber + ' with ' + quickQuotes(qAnswer) + '. This is NOT an acceptable answer format. Question skipped.');
-};
+// function to process question 6
+function q6Checker(q6){
 
-//These variable will be used to define my questions and make other statements easier
-var q, qNumber;
+  if (q6 === null)
+  {
+    an6 = true;
+    alert('You skipped the question! You lost a point!');
+    console.log('User hit "cancel" and has skipped question 6.');
+  } else if (q6 === '') {
+    alert('Please enter an answer or hit "cancel" to quit this question.');
+    console.log('User did not enter any data.');
+  } else if (parseInt(q6) > randoNum)
+  {
+    q6Tries--;
+    alert('Too high! ' + q6Tries + ' attempt/s left.');
+    console.log('User guessed too high.');
+  } else if (parseInt(q6) < randoNum)
+  {
+    q6Tries--;
+    alert('Too low! ' + q6Tries + ' attempt/s left.');
+    console.log('User guessed too low.');
+  } else if (parseInt(q6) === randoNum)
+  {
+    alert('Congrats! ' + q6 + ' was the right answer!');
+    console.log('User guessed the right number. The answer was ' + randoNum + '.');
+    an6 = true;
+    score++;
+  } else
+  {
+    alert('\'' + q6 + '\' is not a valid response. Please enter a number between 1 and 25');
+    console.log('User entered an invalid answer');
+  }
 
-//First prompt introducing user to the game, and getting their name.
+}
+
+// function to process question 7
+function q7Checker(q7){
+  if (q7 === null) {
+    an7 = true;
+    alert('You skipped the question! You lost a point!');
+    console.log('User hit "cancel" and has skipped question 7.');
+  } else if (q7 === '') {
+    alert('Please enter an answer or hit "cancel" to quit this question.');
+    console.log('User did not enter any data.');
+  } else if (pets.includes(q7) === true) {
+    alert('Congrats, ' + q7 + ' is correct!');
+    console.log('User guessed a right answer.');
+    an7 = true;
+    score++;
+  } else {
+    q7Tries--;
+    alert('\'' + q7 + '\' is incorrect. You have ' + q7Tries + ' attempts left.');
+    console.log('User entered a wrong answer');
+  }
+}
+
+
 var yourName = prompt('Welcome to my website! Before we begin let\'s play a quick game. First, tell me your name:');
 console.log('User name is ' + yourName + '.');
 
-//A statement allowing the user to quit the game or to play.
+// Give the user the option to opt out of the game
 var readyPlay = confirm('Okay, ' + yourName + ', try to guess the following questions, using only "Yes/Y" or "No/N" answers. \n\nAre you ready to play? If not, hit cancel');
 if (readyPlay === false) {
   alert('Aww :( well come again next time when you\'re ready to play!');
@@ -35,78 +107,43 @@ if (readyPlay === false) {
 } else {
   console.log('User has decided to play the game!');
 
-  //First question
-  qNumber = 1;
-  var q1 = prompt('Let\'s start with an easy one. Is my name Richard?');
-  q = q1;
-  if (q.toLowerCase() === 'yes' || q.toLowerCase() === 'y'){
-    alert(quickQuotes(q) + ' is correct! Great start!');
-    questionToConsole(true, q);
-  } else if (q.toLowerCase() === 'no' || q.toLowerCase() === 'n'){
-    alert(quickQuotes(q) + ' is incorrect. My name is indeed Richard.');
-    questionToConsole(false, q);
-  } else {
-    alert(quickQuotes(q) + ' Is not an acceptable answer. Please answer the next question with "YES/Y" or "NO/N" only.');
-    answerUnusable(q);
+  // Loop that will run the first 5 questions
+  for (var i = 0; i < allQs.length; i++) {
+    var tryAgain = true;
+    while (tryAgain === true && i < allQs.length) {
+      q = prompt(allQs[i][0]).toLowerCase();
+      questionProcess(q);
+    }
   }
-  //Second question
-  qNumber = 2;
-  var q2 = prompt('Second question. Are my eyes blue?');
-  q = q2;
-  if (q.toLowerCase() === 'yes' || q.toLowerCase() === 'y'){
-    alert(quickQuotes(q) + ' is wrong! Unfortunately :( Let\'s continue.');
-    questionToConsole(false, q);
-  } else if (q.toLowerCase() === 'no' || q.toLowerCase() === 'n'){
-    alert(quickQuotes(q) + ' is correct. My eyes are as dark as my soul. Let\'s continue.');
-    questionToConsole(true, q);
-  } else {
-    alert(quickQuotes(q) + ' Is not an acceptable answer. Please answer the next question with "YES/Y" or "NO/N" only.');
-    answerUnusable(q);
-  }
-  //Third question
-  qNumber = 3;
-  var q3 = prompt('Question 3. Do I like puppies?');
-  q = q3;
-  if (q.toLowerCase() === 'yes' || q.toLowerCase() === 'y'){
-    alert(quickQuotes(q) + '? You bet! Who doesn\'t love puppies?! Just two more questions');
-    questionToConsole(true, q);
-  } else if (q.toLowerCase() === 'no' || q.toLowerCase() === 'n') {
-    alert(quickQuotes(q) + '? You\'re absolutely wrong, my friend. Puppies are fantastic! Just two more questions');
-    questionToConsole(false, q);
-  } else {
-    alert(quickQuotes(q) + ' Is not an acceptable answer. Please answer the next question with "YES/Y" or "NO/N" only.');
-    answerUnusable(q);
-  }
-  //Fourth question
-  qNumber = 4;
-  var q4 = prompt('Question numbero cuatro. Do I own a dog?');
-  q = q4;
-  if (q.toLowerCase() === 'yes' || q.toLowerCase() === 'y'){
-    alert(quickQuotes(q) + ' is unfortunately wrong :( As much as I love puppies I can\'t currently take care of one. Hang in there, one more question to go!');
-    questionToConsole(false, q);
-  } else if (q.toLowerCase() === 'no' || q.toLowerCase() === 'n') {
-    alert(quickQuotes(q) + 'is correct. As much as I love puppies I can\'t currently take care of one. Hang in there, one more question to go!');
-    questionToConsole(true, q);
-  } else {
-    alert(quickQuotes(q) + ' Is not an acceptable answer. Please answer the next question with "YES/Y" or "NO/N" only.');
-    answerUnusable(q);
-  }
-  //Fifth question
-  qNumber = 5;
-  var q5 = prompt('Final question. Do I speak Spanish?');
-  q = q5;
-  if (q.toLowerCase() === 'yes' || q.toLowerCase() === 'y'){
-    alert(quickQuotes(q) + ' is correct! Muy bien, ' + yourName + '!');
-    questionToConsole(false, q);
-  } else if (q.toLowerCase() === 'no' || q.toLowerCase() === 'n') {
-    alert(quickQuotes(q) + ' is not the right answer. Buena suerte la proxima vez, ' + yourName + '!');
-    questionToConsole(true, q);
-  } else {
-    alert(quickQuotes(q) + ' Is not an acceptable answer. Please answer the next question with "YES/Y" or "NO/N" only.');
-    answerUnusable(q);
-  }
-  //Last prompt
-  alert('That\'s the end of the game, ' + yourName + '. Thanks for playing!');
-  console.log('The game has concluded');
-}
 
+  alert('Great job! Now we\'ll do a couple of different questions.');
+
+  //Question 6
+  var an6;
+  var randoNum = Math.floor(Math.random() * 25) + 1;
+  // console.log('Number generated is ' + randoNum); < if I want to see the number in the log.
+  var q6Tries = 4;
+
+  // Question 6 function call/loop
+  do {
+    var q6 = prompt('What number (between 1-25) am I thinking of right now? You have ' + q6Tries + ' tries!');
+    an6 = false;
+    q6Checker(q6);
+  } while (an6 === false && q6Tries > 0);
+
+  var q7Tries = 6;
+  var an7;
+
+  // Question 7 function call/loop
+  do {
+    var q7 = prompt('Now try to guess a type of pet I have owned. You have ' + q7Tries + ' attempts.').toLowerCase();
+    an7 = false;
+    q7Checker(q7);
+  } while (an7 === false && q7Tries > 0);
+
+  alert('The possible anwers were: dog, cat, fish, turtle, monkey, lizard and parrot.');
+
+  // Final alert plus score
+  alert('This concludes the game, ' + yourName + '. Your final score is ' + score + ' out of 7');
+  console.log('User\'s final score is: ' + score + ' out of 7');
+}

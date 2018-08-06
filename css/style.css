@@ -85,7 +85,6 @@ span.learn-more {
   border-color: rgb(29, 27, 27);
   border-width: 8px;
   border-style: solid;
-  /* background-blend-mode: hard-light; */
 }
 
 .my-info {
@@ -127,13 +126,4 @@ h2 {
   overflow: auto;
   background-color: rgb(41, 42, 43);
   height: 100px;
-}
-
-.paragraph-section p {
-  /* opacity: 0; */
-  transition: all .5s ease;
-}
-
-.paragraph-section:hover p {
-  opacity: 1;
 }
